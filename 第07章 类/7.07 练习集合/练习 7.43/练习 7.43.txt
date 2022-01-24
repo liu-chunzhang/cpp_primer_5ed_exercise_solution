@@ -1,0 +1,22 @@
+因为NoDefault仅有一个构造函数并不是默认构造函数，所以在类C中，不能使用无参数的默认构造函数，那样的话，类C的NoDefault成员不能正确的初始化。知道了这一点，可以写出的一个可行的头文件程序为
+#ifndef NODEFAULT_H
+#define NODEFAULT_H
+
+#include <iostream>
+using namespace::std ;
+
+class NoDefault {
+    public:
+        NoDefault( int i ) { val = i ; } 
+    private:
+        int val ;
+}
+
+class C {
+    public:
+        C( int i = 1 ) : nd( i ) { }
+    private:
+        NoDefault nd ;
+}        
+
+#endif // NODEFAULT_H

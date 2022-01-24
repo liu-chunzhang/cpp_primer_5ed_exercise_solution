@@ -1,0 +1,3 @@
+Sales_data first_item( cin )接受了std::istream&参数的构造函数，该对象的成员值依赖于用户的输入；
+Sales_data next使用了默认构造函数，其中string类型的成员被默认初始化为空字符串，其他几个成员使用类内初始值初始化为0；
+Sales_data last使用了只接受const string&参数的构造函数，其中bookNo使用实参初始化为"9-999-99999-9"，其他几个成员使用类内初始值初始化为0。
