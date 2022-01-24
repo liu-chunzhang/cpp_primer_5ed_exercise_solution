@@ -1,0 +1,14 @@
+(a)是非法的，它的原意是希望在while语句的控制结构中定义一个string::iterator类型的变量iter，然后判断iter是否到达了s的末尾，只要是还没有到末尾就执行循环体的内容。但是该式把定义和关系判断混合在一起，如果要使用iter与其他值比较，必须首先为iter赋初值（换一个角度，如果一直循环，岂非是每一轮都要重新定义一次？）。修改后的程序应该是
+string::iterator iter = s.begin() ;
+while( iter != s.end() ){
+         /* ... */
+        ++iter ;
+}
+(b)是非法的，变量status定义在while循环控制结构的内部，其作用域仅限于while循环。if语句已经位于while循环的作用域之外，status在if语句内是一个未命名的无效变量。想要在if语句中继续使用status，需要把它定义在while循环之前。修改后的程序应该是（顺便，while里的条件常规应该是status == find(word)吧，姑且记下这一处）
+bool status;
+while( status = find(word) ){
+       /* ... */ 
+}
+if( ! status ){
+   /* ... */ 
+}

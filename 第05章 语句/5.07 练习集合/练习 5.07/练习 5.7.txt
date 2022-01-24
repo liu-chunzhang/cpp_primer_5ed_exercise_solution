@@ -1,0 +1,20 @@
+(a)if语句下的执行语句尾部缺少了分号（if语句的循环体应该是一条语句，需要以分号结束）。可改为
+if ( ival1 != ival2 )
+     ival1 = ival2 ;
+else 
+     ival1 = ival2 = 0 ; 
+(b)从语法上没有问题，只是if语句的真假只能够关系到第一句语句是否被执行，第二句不论其真假必定被执行。由于if语句的循环体只能是一条语句，而本例从逻辑上需要做两件事，一是修改minval的值，二是重置occurs的值，所以必须将这两条语句放在一个块里。可改为
+if( ival < minval ) {
+   minval = ival ;
+   occurs = 1 ;
+}
+(c)ival是定义在if语句中的变量，其作用域仅限于第一个if语句，想要在第二个if语句中也使用它，就必须把它定义在两个if语句的外部。可改为
+可以先定义，然后进行比较
+int ival ;
+if( ival = get_value() )
+   cout << "ival = " << ival << endl;
+if( ! ival )
+   cout << "ival = 0\n" ;
+(d)混淆了赋值运算符和相等运算符，原意应该是判断ival是否是0，按照题目上的写法，先将0赋给ival，再检验ival的值，这样条件永远不会满足。
+if( ival == 0 )
+   ival = get_value() ;
