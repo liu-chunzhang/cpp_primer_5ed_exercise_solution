@@ -1,0 +1,4 @@
+(a)发生了。'a'被提升成了int，之后和3做加法，结果再转化为char，并赋给cval；
+(b)发生了。ival被提升为double，与1.0相乘的结果也是double类型，ui被提升为double后与此结果相减，生成的新结果转化为float赋给fval；
+(c)发生了。ui被提升为float，再与fval相乘，结果转化为double，并被赋给dval；
+(d)发生了。ival被提升为float，再与fval相加，结果转化为double，再和dval相加，最后结果转化为char后赋给cval。
