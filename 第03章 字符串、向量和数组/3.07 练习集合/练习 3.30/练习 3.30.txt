@@ -1,0 +1,5 @@
+这题的原意时创建一个包含10个整数的数组，且把数组的每个元素初始化为元素的下标值。教材题目中的程序在for循环终止条件处有错，数组的下标应该不小于0且小于数组大小，在本题语境中应该是0~9，故程序应该在for循环的初始条件和循环条件处修改：
+    constexpr size_t array_size = 10 ;
+    int ia[array_size] ;                    
+    for( size_t ix = 0 ; ix != array_size ; ++ix )  
+        ia[ix] = ix + 1  ;
