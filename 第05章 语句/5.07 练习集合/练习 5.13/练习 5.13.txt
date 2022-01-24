@@ -1,0 +1,65 @@
+(a)在aCnt++后面缺少break语句，在eCnt++后面缺少break语句（错误是在每个case分支后面缺少了相应的break语句，造成的结果是一旦执行前面的case分支，必定还会继续执行接下来的其他case分支，这与程序的预期并不相符）。程序可改为
+    unsigned aCnt = 0 , eCnt = 0 , iouCnt = 0 ;
+    char ch = next_text() ;
+    switch( ch ) {
+        case 'a' :
+            aCnt++ ;
+            break ;
+        case 'e' :
+            eCnt++ ;
+            break ;
+        default :
+            iouCnt++ ;
+            break ;
+    }
+(b)case 1里定义的ix直接在default中使用了（错误是在case分支中定义并初始化了变量ix，同时在default分支中使用了该变量，此时如果控制流跳过case分支直接到达default分支，则会试图使用未经初始化的变量，因而该程序不能够通过编译）。解决思路见教程5.3.2节，方法可以是把ix的定义放在switch语句之前。程序可改为
+    unsigned index = some_value() ;
+    int ix ;
+    switch( index ) {
+        case 1 :
+            ix = get_value() ;
+            ivec[ ix ] = index ;
+            break ;
+        default :
+            ix = ivec.size() - 1 ;
+            ivec[ ix ] = index ;
+    }
+就本题而言，也可改为
+    unsigned index = some_value() ;
+    switch( index ) {
+        case 1 : {
+            int ix = get_value() ;
+            ivec[ ix ] = index ;
+            break ;
+        }
+        default : {
+            int ix = ivec.size() - 1 ;
+            ivec[ ix ] = index ;
+        }
+    }
+(c)几个case标签写在一行的方式不对（错误是在同一个case标签中放置了多个值，而规定是只允许一个case分支放一个）。此外，前后变量名对不上（此外，使用后置加法也是不被推荐的）。程序可改为
+    unsigned evenCnt = 0 , oddCnt = 0 ;
+    int digit = get_num() % 10 ;
+    switch( digit ) {
+        case 1 : case 3 : case 5 : case 7 : case 9 :
+            ++oddCnt ;
+            break ; 
+        case 2 : case 4 : case 6 : case 8 : case 10 :
+            ++evenCnt ;
+            break ;
+    }
+(d)错误是使用变量作为case标签的内容，但是规定是只允许使用整型常量表达式。程序可改为
+    const unsigned ival = 512 , jval = 1024 , kval = 4096 ;
+    unsigned bufsize ;
+    unsigned swt = get_bufCnt() ;
+    switch( swf ) {
+        case ival :
+            bufsize = ival * sizeof( int ) ;
+            break ;
+        case jval :
+            bufsize = jval * sizeof( int ) ;
+            break ;
+        case kval :
+            bufsize = kval * sizeof( int ) ;
+            break ;
+    }

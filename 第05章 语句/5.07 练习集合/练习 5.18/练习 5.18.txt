@@ -1,0 +1,17 @@
+(a)原意应该是每次循环读入两个整数并输出其和。因为do-while语句的循环体必须是一条语句或者一个语句块，所以本题中应该把循环体的内容用花括号括起来。程序可改为
+    do{
+        int v1 , v2 ;
+        cout << "Please enter two numbers to sum :" << endl;
+        if( cin >> v1 >> v2 )
+            cout << "Sum is: " << v1 + v2 << endl;
+    }while( cin ) ;         
+(b)原意应该是get_response()的返回值不为0时执行循环体。因为do-while语句不允许在循环条件内定义变量，所以该程序是错误的。程序可改为
+    int ival ;
+    do {
+        /* ... */
+    }while( ival = get_response() ) ;
+(c)原意应该是当get_response()的返回值不为0时执行循环体。因为出现在do-while语句条件部分的变量必须定义在循环体之外，所以该程序是错误的。程序可改为
+    int ival ;
+    do {
+        /* ... */
+    }while( ival = get_response() ) ;
