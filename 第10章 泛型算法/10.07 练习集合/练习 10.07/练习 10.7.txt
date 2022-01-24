@@ -1,0 +1,32 @@
+(a)是错误的。因为泛型算法的一个基本特点是：算法总是通过迭代器操作容器，因此不能直接向容器添加/删除元素，无法改变容器的大小。而于copy算法要求目的序列至少要包含与源序列一样多的元素。此程序中，vec进行默认初始化，它是空的，copy无法执行。如欲改变容器大小，需要使用一类特殊的称为插入（迭代）器的迭代器。我们可以将第三个参数修改为back_iterator( vec )，通过它，copy算法即可将lst中元素的拷贝插入到vec的末尾。程序可写为：
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+using namespace std;
+
+int main() {   
+    list<int> ilst ;
+    vector<int> ivec ;
+    int i ;
+    while( cin >> i )
+        ilst.push_back( i ) ;
+    copy( ilst.cbegin() , ilst.cend() , back_inserter( ivec ) ) ;    // 此处是修正关键
+    for( const int i : ivec )
+        cout << i << " ";
+    return 0;
+}
+(b)是错误的。粗看起来，reserve为vec分配了至少能够容纳10个int的内存空间，调用fill_n时，vec已有足够空间。但泛型算法对于容器的要求并不是具有足够的空间，而是具有足够的元素！此时vec仍然为空，没有任何元素。而算法本身又不具备向容器添加元素的能力，因此fill_n仍失败。这里，我们还是需要使用back_inserter来让fill_n有能力向vec添加元素（空间大小并不是问题，容器能够根据需要自动扩容）。程序可写为：
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {   
+    vector<int> vec ;
+    vec.reserve( 10 ) ;
+    fill_n( back_inserter( vec ) , 10 , 0 ) ;     // 这里做了改正
+    for( const int i : vec )
+        cout << i << " " ;
+    return 0 ;
+}
