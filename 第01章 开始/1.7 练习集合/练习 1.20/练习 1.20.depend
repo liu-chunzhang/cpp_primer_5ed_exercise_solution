@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1606647014 source:c:\users\lkz98\desktop\c++ primer（第五版） 程序设计整理\第一章 开始\1.5 类简介\练习 1.20\main.cpp
-	<iostream>
-	"Sales_item.h"
-
-1606275267 c:\users\lkz98\desktop\c++ primer（第五版） 程序设计整理\第一章 开始\1.5 类简介\练习 1.20\sales_item.h
-	<iostream>
-	<string>
-
