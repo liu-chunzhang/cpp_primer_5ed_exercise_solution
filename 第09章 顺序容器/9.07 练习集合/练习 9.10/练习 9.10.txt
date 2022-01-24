@@ -1,1 +1,0 @@
-begin和auto结合使用时，会根据调用对象的类型来决定迭代器的类型。it1是vector<int>::iterator，普通迭代器，可以对于容器元素进行读写访问；it2是vector<int>::const_iterator，常量迭代器，不能对容器元素进行写访问。而由于cbegin不管调用对象是什么类型都返回常量迭代器，则it3和it4都是vector<int>::const_iterator。

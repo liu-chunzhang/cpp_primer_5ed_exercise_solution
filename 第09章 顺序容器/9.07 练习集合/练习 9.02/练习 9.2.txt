@@ -1,2 +1,0 @@
-程序可写为
-list<deque<int>> ideqlst ;

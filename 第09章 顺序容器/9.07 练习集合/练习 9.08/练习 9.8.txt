@@ -1,2 +1,0 @@
-为了读取string的list中的元素，应使用list<string>::value_type，因为value_type表示元素类型。
-为了写入数据，需要（非常量）引用类型，因此应使用list<string>::reference。
