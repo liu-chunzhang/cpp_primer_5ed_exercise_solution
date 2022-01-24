@@ -1,0 +1,1 @@
+对于教材P325给定的name和numbers值，在number中不存在与name匹配的字符串，find会返回npos。
