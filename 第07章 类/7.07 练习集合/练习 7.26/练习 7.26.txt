@@ -1,0 +1,18 @@
+想要把类的成员函数定义为内联函数有两种途径。第一种是直接把函数定义放在类的内部，第二种是把函数定义放在类的外部，并且在定义之前显式地指定inline关键字。
+隐式内联程序可写为
+class Sales_data {
+    / ... /
+    public:
+        double avg_price() const { return ( units_sold ) ? revenue / units_sold : 0 ; }
+    / ... /
+}
+显式内联程序可写为
+class Sales_data {
+    / ... /
+    public:
+        double avg_price() const ;
+}
+
+inline double Sales_data::avg_price() const {
+    return ( units_sold ) ? revenue / units_sold : 0 ;
+}

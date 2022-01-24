@@ -1,0 +1,7 @@
+程序的目的是对item执行聚合类初始化操作，用花括号内的值初始化item的数据成员。然而实际过程与程序的原意不符合，编译器会报错。
+这是因为聚合类必须满足一些非常苛刻的条件，其中一项是没有类内初始值，而在2.6.1节给出的定义里，数据成员units_sold和revenue都包含了类内初始值，只需去掉这两个类内初始值定义，就可以正常编译程序了。新的Sales_data类的定义如下
+struct Sales_data{
+    string bookNo ;
+    unsigned units_sold ;
+    double revenue ;
+};

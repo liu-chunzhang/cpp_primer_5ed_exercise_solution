@@ -1,0 +1,3 @@
+(a)是正确的。编译器首先用给定的string对象s自动地创建一个Sales_data对象，然后这个新生成的临时对象传给combine的形参（类型是Sales_data），函数得以正确执行并返回结果。
+(b)无法编译通过。因为combine函数的参数是一个非常量引用，而s是一个string对象，编译器用s自动地创建一个Sales_data临时对象，但是这个新生成的临时对象是不能够传递给combine所需的非常量引用的（即，不允许将临时量传给非常量引用！见教材P55）。如果修改函数声明为Sales_data &combine( const Sales_data &item ) ;就可以了。
+(c)无法编译通过。因为我们把combine函数声明成了常量成员函数，所以该函数无法修改数据成员的值。
