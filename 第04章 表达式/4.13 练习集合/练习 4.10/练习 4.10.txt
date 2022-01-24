@@ -1,0 +1,8 @@
+最简洁的形式是（假定已经定义了int型变量num）
+while( cin >> num && num == 42 ){ /* ... */ }
+也可以
+while( cin >> num ){
+         if ( num == 42 ) 
+              break ;
+        /* ... */
+}
