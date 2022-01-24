@@ -1,1 +1,0 @@
-initializer_list<string>的所有元素类型都是string，因此const auto &elem : i 推断得到的elem元素类型都是const string（修饰符是&）。使用引用是为了避免拷贝长字符串，把它定义为常量的原因是我们只需读取字符串的内容而无须修改它。

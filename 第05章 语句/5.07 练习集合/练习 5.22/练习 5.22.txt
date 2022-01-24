@@ -1,6 +1,0 @@
-可以用do-while语句处理。
-    int sz ;
-    do {
-        sz = get_size() ;
-    }while( sz <= 0 ) ;
-此处一是注意需要在do-while循环体外定义变量sz，二是记得在while的条件后加分号。

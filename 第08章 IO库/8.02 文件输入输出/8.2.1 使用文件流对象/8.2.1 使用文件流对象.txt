@@ -1,1 +1,0 @@
-本节exe文件需要在命令行中运行，输入text data2.txt data3.txt，如此才会正确读入data2.txt中的数据，并运算整合后输出到data3.txt中。

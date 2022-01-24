@@ -1,3 +1,0 @@
-welcome to C++ family!
-hello
-hiya

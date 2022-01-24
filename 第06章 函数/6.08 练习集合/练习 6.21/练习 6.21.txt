@@ -1,4 +1,0 @@
-函数实际上比较的是第一个实参的值和第二个实参所指的元素的值，因为它们都不需要被修改，所以整型变量和指针的类型选择常量类型即可。一种简单的写法是
-int compareAIntAndAIntPointer( const int i , const int *j ){
-    return ( i > *j ) ? i : *j ;
-}

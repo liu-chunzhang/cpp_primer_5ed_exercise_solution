@@ -1,3 +1,0 @@
-(a)fval转化为bool值（所有非0值转换为true，0转换为false）；
-(b)ival提升成float，和fval做加法，结果提升成double；
-(c)cval提升成int，和ival做乘法，结果提升成double再和dval做加法。

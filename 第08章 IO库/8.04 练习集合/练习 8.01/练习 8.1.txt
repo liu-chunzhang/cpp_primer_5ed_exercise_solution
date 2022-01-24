@@ -1,8 +1,0 @@
-程序可写为
-istream& printInt( istream &in ) {
-    int v ;
-    while( in >> v )                  // 循环条件：从给定流中读入数据，直到遇到文件结束标识时停止.
-        cout << v << endl;
-    in.clear() ;                           // 完成这些操作后，在返回流之前，对流进行复位，使其处于有效状态
-    return in ;
-}

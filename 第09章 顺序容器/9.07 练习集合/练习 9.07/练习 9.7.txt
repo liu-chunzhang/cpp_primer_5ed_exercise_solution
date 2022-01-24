@@ -1,1 +1,0 @@
-可使用vector<int>::size_type来索引int的vector中的元素。

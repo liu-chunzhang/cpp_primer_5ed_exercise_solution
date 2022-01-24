@@ -1,2 +1,0 @@
-使用static_cast把double类型的变量强制转换成int类型，就可以令表达式i *= d执行整数类型的乘法。语句可以写为
-i *= static_cast<int>(d) 

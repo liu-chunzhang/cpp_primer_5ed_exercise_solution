@@ -1,2 +1,0 @@
-程序可写为（假定已声明了using namespace std; ）
-Sales_data::Sales_data( const string &book ) : bookNo( book ) , units_sold( 0 ) , double( 0.0 ) { }

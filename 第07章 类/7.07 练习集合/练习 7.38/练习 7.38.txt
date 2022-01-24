@@ -1,2 +1,0 @@
-仅需要声明这种构造函数（以在"Sales_data.h"里为例）可以写为
-Sales_data( std::istream &in = std::cin ) ;

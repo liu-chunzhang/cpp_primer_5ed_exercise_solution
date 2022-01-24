@@ -1,6 +1,0 @@
-想使函数返回数组的引用并且该数组包括10个string对象，可以按照以下形式声明函数
-string (&return10stringArr( ) )[10] ;
-return10stringArr( )表示调用无须任何实参，
-(&return10stringArr( ))表示函数的返回结果是一个引用，
-(&return10stringArr( ))[10]表示函数的返回结果是一个维度是10的数组的引用，
-string (&return10stringArr( ))[10]表示引用的维度是10的数组，其元素类型是string。

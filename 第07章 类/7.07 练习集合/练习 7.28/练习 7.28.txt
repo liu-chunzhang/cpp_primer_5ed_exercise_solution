@@ -1,9 +1,0 @@
-正常运行练习 7.27的结果：
-XXXXXXXXXXXXXXXXXXXX#XXXX
-XXXXXXXXXXXXXXXXXXXX#XXXX
-正常运行练习 7.28的结果：
-XXXXXXXXXXXXXXXXXXXX#XXXX
-XXXXXXXXXXXXXXXXXXXXXXXXX
-产生不同的原因是：返回引用的函数是左值的，意味着这些函数返回的是对象本身而非是对象的副本。如果我们把一系列这样的操作连接在一起的话，所有操作将在同一个对象上执行！
-在练习7.27中，move、set和display函数的返回类型都是Screen&，表示我们首先移动光标至(4,0)位置，然后将该位置的字符修改为'#'，最后输出myscreen的内容；相反在练习 7.28中，如果我们把move、set和display函数的类型改成Screen，则上述函数各自只返回一个临时副本，不会改变myscreen的值。
-需要注意的是，此处的拷贝构造函数需要对Screen类的所有成员对象赋值，不能遗漏（比如不能漏掉cursor，height和width）。

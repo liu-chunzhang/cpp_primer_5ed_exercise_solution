@@ -1,4 +1,0 @@
-(1)将范围[ beg , end )间值等于old_val的元素替换为new_val；
-(2)将范围[ beg , end )间值满足谓词pred的元素替换为new_val；
-(3)将范围[ beg , end )间值拷贝到目的序列dest中，将其中值等于old_val的元素替换为new_val；
-(4)将范围[ beg , end )间值拷贝到目的序列dest中，将其中满足谓词pred的元素替换为new_val。

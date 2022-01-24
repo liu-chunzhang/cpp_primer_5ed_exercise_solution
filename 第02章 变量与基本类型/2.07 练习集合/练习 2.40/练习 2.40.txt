@@ -1,9 +1,0 @@
-类的设计源于实际应用，设计Sales_data类的关键是理解再销售过程中应该包含哪些数据元素，同时为每个元素设定合适的数据类型。
-教材中的程序包含了三个数据成员，分别是bookNo（书籍编号）、units_sold（销售量）和revenue（销售收入），新设计的Sales_data类可以去细化销售收入的计算方式，在保留bookNo和units_sold的基础上增加sellingprice（零售价、原价）、saleprice（实售价、原价）、discount（折扣）= saleprice/sellingprice。以下是一个经过编译器检验过的正确的蕴含上述想法的类。
-struct Sales_data {
-std::string bookNo;
-unsigned units_sold = 0 ;
-double sellingprice = 0.0 ;
-double saleprice = 0.0 ;
-double discount = 1.0 ;
-};

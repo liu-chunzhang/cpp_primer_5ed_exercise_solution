@@ -1,3 +1,0 @@
-(a)合法。定义了一个名为ivec的vector对象，其中每个元素都是vector<int>对象；
-(b)非法。sevc元素的类型是string，而ivec的元素类型是vector<int>，二者不相符，因此不能用ivec初始化svec；
-(c)合法。定义了一个名为svec的vector对象，其中含有10个元素，每个元素都是字符串字面值null。

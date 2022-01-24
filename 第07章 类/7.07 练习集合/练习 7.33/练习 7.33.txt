@@ -1,4 +1,0 @@
-如果添加如题目所示的size函数将会出现编译错误。因为该函数的返回类型pos本身定义在Screen类的内部，所以在类的外部无法直接使用pos。如果想使用pos，需要在它的前面加上作用域Screen::。修改后的程序是：
-Screen::pos Screen::size() const {
-    return height * width ;
-}

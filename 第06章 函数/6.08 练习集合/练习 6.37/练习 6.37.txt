@@ -1,8 +1,0 @@
-使用类型别名形式为
-using strarr10 = string[10] ;（或者 typedef string strarr10[10] ;）
-strarr10& return10stringArr( ) ;
-使用尾置返回类型形式为
-auto return10stringArr( ) -> string(&)[10] ;
-使用decltype关键字形式为
-string str[10] ;
-decltype( str ) &return10stringArr( ) ;
