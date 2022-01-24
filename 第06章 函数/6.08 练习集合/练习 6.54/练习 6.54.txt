@@ -1,0 +1,4 @@
+先构造一个复合题意的函数
+int accept2Ints( int , int ) ;
+再构造符合题意的vector对象
+vector<decltype(accept2Ints)*> ipvec ;

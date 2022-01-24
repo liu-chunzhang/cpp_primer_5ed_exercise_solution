@@ -1,0 +1,3 @@
+目前在本机上test的绝对地址为
+C:\Users\lkz98\Desktop\C++ Primer（第五版） 程序设计整理\第6章 函数\6.8 练习集合\练习 6.26
+在用Windows命令行打开此绝对路径后，输入test xxx xxxx ... 等即可看到该程序实现了功能。

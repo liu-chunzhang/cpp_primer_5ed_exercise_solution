@@ -1,0 +1,8 @@
+此文件在本机的绝对路径是
+C:\Users\lkz98\Desktop\C++ Primer（第五版） 程序设计整理\第6章 函数\6.8 练习集合\练习 6.47
+在命令行内依次执行下面的命令：
+g++ main.cpp -o test0
+g++ -D NDEBUG0 main.cpp -o test1
+g++ -D NDEBUG1 main.cpp -o test2
+g++ -D NDEBUG0 -D NDEBUG1 main.cpp -o test12
+可以依次得到test0.exe，test1.exe，test2.exe和test12.exe，双击即可运行比较其区别。
