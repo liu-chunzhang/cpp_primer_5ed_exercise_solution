@@ -1,0 +1,4 @@
+(a)因为从函数名来看，两个参数一方面不是内置类型，所以应该用引用类型；此外应该不需要改动，所以参量形式取为常量引用：
+bool compare( const matrix &m1 , const matrix& m2 ) ; 
+(b)从函数名来看，似乎是将vector<int>::iterator的原来位置进行了未知的调整，又返回了迭代器，所以两个参数都不须取为常量：
+vector<int>::iterator change_val( int position , vector<int>::iterator iter ) ;
