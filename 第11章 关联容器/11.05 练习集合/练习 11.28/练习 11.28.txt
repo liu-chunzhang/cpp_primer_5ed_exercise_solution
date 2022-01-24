@@ -1,0 +1,2 @@
+find返回一个迭代器，指向具有给定关键字的元素（若不存在则返回尾后迭代器），因此其返回类型是容器的迭代器。故可以写为（设已经有map<string,vector<int>> svimap ;）
+map<string,vector<int>>::iterator msviiter = svimap.find( "hello" ) ;

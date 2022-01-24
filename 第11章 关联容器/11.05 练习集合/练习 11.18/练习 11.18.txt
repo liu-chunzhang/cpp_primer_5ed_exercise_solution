@@ -1,0 +1,1 @@
+map_it的类型为map<string,unsigned>::const_iterator。

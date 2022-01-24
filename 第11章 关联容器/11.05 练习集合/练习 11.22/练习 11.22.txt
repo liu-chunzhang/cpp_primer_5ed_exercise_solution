@@ -1,0 +1,1 @@
+根据教程P384的表11.4，map的函数insert参数类型应该是pair<string,vector<int>>；返回类型应该是pair<map<string,vector<int>>::iterator,bool>。

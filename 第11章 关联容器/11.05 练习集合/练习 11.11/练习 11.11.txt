@@ -1,0 +1,3 @@
+首先用typedef定义与compareIsbn相容的函数指针的类型，然后用此类型声明multiset即可。
+typedef bool ( *pf )( const Sales_data& , const Sales_data& ) ;
+multiset<Sales_data,pf> bookstore( compareIsbn ) ;

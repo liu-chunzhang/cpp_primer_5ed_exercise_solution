@@ -1,0 +1,1 @@
+equal_range返回一个pair，其first成员与lower_bound的返回结果相同，即指向容器中第一个具有给定关键字的元素。因此对其解引用会得到一个value_type对象，即一个pair，其first为元素的关键字（即给定的关键字），而second为关键字关联的值。在本例中，关键字为作者（string对象），关联的值为著作题目（string对象），因此pos.first->second即获得给定作者的某一部已录入authors的著作名。
