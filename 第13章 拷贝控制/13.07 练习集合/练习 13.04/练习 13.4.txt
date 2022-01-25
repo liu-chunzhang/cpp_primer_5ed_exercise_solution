@@ -1,0 +1,6 @@
+有5个地方使用了拷贝构造函数：
+(1)将函数foo_bar所用的实参传递给其形参arg时；
+(2)local = arg, 将arg拷贝给local；
+(3)*heap = new Point( global ) ; 将global拷贝给heap指向的Point型元素；
+(4)Point pa[ 4 ] = { local , *heap }; 将local和*heap拷贝给数组的前两个元素；
+(5)return *heap; 将heap指向的元素拷贝给返回值。

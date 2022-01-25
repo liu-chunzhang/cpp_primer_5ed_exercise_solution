@@ -1,0 +1,4 @@
+这两个类都没有定义析构函数，因此编译器会为它们合成析构函数。
+对StrBlob，合成析构函数的空函数体执行完毕后，会进行隐含的析构阶段，销毁非静态数据成员data。这会调用shared_ptr的析构函数，将引用计数-1，引用计数变为0，会销毁共享的vector对象；
+对StrBlobPtr，合成析构函数在隐含的析构阶段会销毁数据成员wptr和curr，销毁wptr会调用weak_ptr的析构函数，引用计数不变，而curr是内置对象，销毁其不会有什么特殊动作。
+StrBlob类和StrBlobPtr类的信息保存在头文件StrBlob.h、源文件StrBlob.cpp和StrBlobPtr.h、StrBlobPtr.cpp中，可供查看。

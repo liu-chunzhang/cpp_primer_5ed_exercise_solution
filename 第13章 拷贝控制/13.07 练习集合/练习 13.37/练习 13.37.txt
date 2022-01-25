@@ -1,0 +1,1 @@
+实际上，在练习13.36所附的源文件和头文件中已有了addFldr和remFldr函数，用于向folders中添加或删除一个给定的Folder*了。

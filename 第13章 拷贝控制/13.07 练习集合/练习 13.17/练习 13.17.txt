@@ -1,0 +1,7 @@
+此文件在本机的绝对路径是
+C:\Users\lkz98\Desktop\C++ Primer（第五版） 程序设计整理\第13章 拷贝控制\练习 13.17
+在命令行内依次执行下面的命令：
+g++ main.cpp numbered.cpp -o test
+g++ -D NDEBUG main.cpp numbered.cpp -o test_NDEBUG
+可以依次得到test.exe和text_NDEBUG.exe，分别表示用自定义的拷贝构造函数、合成的拷贝赋值运算符和默认的拷贝构造函数、拷贝赋值运算符得到的结果。前三行是调用参数是numbered型变量的函数得到的结果，后三行是调用参数是const numbered&型变量得到的结果。此处启用NDEBUG宏解蔽了自定义的拷贝构造函数。
+可以直接运行test.exe和text_NDEBUG.exe查看运行结果，与自己的考虑相比较验证。

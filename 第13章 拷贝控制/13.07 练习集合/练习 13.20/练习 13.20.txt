@@ -1,0 +1,4 @@
+两个类定义的头文件和源文件已附在同层文件夹内，打开即可查看。
+由于两个类都未定义拷贝控制成员，因此都是编译器为它们定义合成版本。
+当拷贝一个TextQuery时，合成版本会拷贝file和wm成员：对file成员，shared_ptr的引用计数会+1（会调用vector和string的拷贝构造函数）；对wm成员，会调用map的拷贝构造函数（继而调用string、shared_ptr和set的拷贝构造函数），因此会正确指向拷贝操作。赋值操作类似，只不过会将原有的file成员的引用计数-1（因此原来的资源可能被释放掉）；当TextQuery销毁时，合成版本会销毁其file和wm成员：对file成员，会将shared_ptr的引用计数-1，若其变为0，则销毁其所管理的动态vector对象（会调用vector和string的析构函数）；对wm成员，调用map的析构函数（从而调用string、shared_ptr和set的析构函数），保证正确释放资源。
+当拷贝一个QueryResult时，合成版本会拷贝sought（即targetword）、lines（即linenoset）和file（即linevec）成员：对sought成员，会调用string的拷贝构造函数；对lines成员，shared_ptr的引用计数会+1；对file成员，shared_ptr的引用计数会+1。赋值操作类似TextQuery，只不过递减引用shared_ptr的引用计数（可能使原来的资源释放掉）；当QueryResult销毁时，合成版本会销毁sought、lines和file成员。类似于TextQuery，string、shared_ptr、set和vector的析构函数可能被调用，因为这些类都有设计良好的拷贝控制成员，会正确释放资源。

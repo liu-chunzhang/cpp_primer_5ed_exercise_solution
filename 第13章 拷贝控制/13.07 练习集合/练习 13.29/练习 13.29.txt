@@ -1,0 +1,1 @@
+此swap函数调用了swap来交换HasPtr的成员ps和i，但这两个成员的类型分别是指针和整型，都是内置类型，因此函数中的swap会被解析为std::swap而非HasPtr::swap，所以不会导致递归循环。

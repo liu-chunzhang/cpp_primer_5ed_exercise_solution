@@ -1,0 +1,4 @@
+由于两个类都未定义拷贝赋值运算符，因此编译器为它们定义了合成的拷贝赋值运算符。
+与拷贝构造函数类型，赋值一个StrBlob时，赋值其唯一的成员data，使用shared_ptr的拷贝赋值运算符来完成，因此其引用计数+1；
+赋值一个StrBlobPtr时，赋值成员wptr，用weak_ptr的拷贝复制运算符进行赋值，引用计数不变，然后赋值curr，直接进行内存复制。
+StrBlob类和StrBlobPtr类的信息保存在头文件StrBlob.h、源文件StrBlob.cpp和StrBlobPtr.h、StrBlobPtr.cpp中，可供查看。

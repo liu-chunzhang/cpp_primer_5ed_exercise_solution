@@ -1,0 +1,1 @@
+因为first_free指向第一个空闲位置，也就是最后一个string的尾后位置。当添加新string时，应该保存在first_free指向的位置，然后将first_free推进一个位置，因此后置递增运算恰好符合要求；如果使用前置递增运算，则是先将first_free推进一个位置，然后将新string保存在新位置上。显然，这种方法意味着first_free指向最后一个string，而不是尾后位置，这与first_free设计原意不符。

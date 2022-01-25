@@ -1,0 +1,5 @@
+其实是为了极大优化性能考虑。如果采用拷贝并交换方式，执行过程是这样的：
+(1)由于赋值运算符的参数类型是Message类型，因此会将实参拷贝给形参rhs，这会触发拷贝构造函数：将实参的contents和folders拷贝给rhs，并调用add_to_Folders将rhs添加到folders的所有folder中。
+(2)随后赋值运算符调用swap交换*this和rhs，首先遍历两者的folders，将它们从自己的文件夹中删除；然后调用string和set的swap交换它们的contents和folders；最后，再遍历两者新的folders，将它们分别添加到自己的新的文件夹中。
+(3)最后，赋值运算符结束，rhs被销毁，析构函数调用remove_from_Folders将rhs从自己所有的folder中删除。
+虽然语义是正确的，可以达到预期目的，但是效率太低了。rhs创建、销毁及两次添加和删除都没用意义，而采用拷贝复制运算符的标准编写方式，形参rhs为引用类型，就能够避免这些冗余操作，具有更好的性能。

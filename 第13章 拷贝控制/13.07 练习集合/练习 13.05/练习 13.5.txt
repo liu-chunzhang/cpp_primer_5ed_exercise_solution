@@ -1,0 +1,14 @@
+在头文件里的类HasPtr可写为（设已经加入了足够的头文件，且应用了std命名空间）
+class HasPtr{
+    public:
+        HasPtr( const string &s = string() ) ;
+        HasPtr( const HasPtr &rhs ) ;
+
+    private:
+        string *ps ; 
+        int i ;
+};
+源文件HasPtr.cpp相应的函数定义写为
+HasPtr::HasPtr( const string &s ) : ps( new string( s ) ) , i( 0 ) { }
+
+HasPtr::HasPtr( const HasPtr &rhs ) : ps( new string( *rhs.ps ) ) , i( rhs.i ) { }
