@@ -1,0 +1,10 @@
+该try块中使用的exception、runtime_error及overflow_error是标准库中定义的异常类，它们是因继承而相关的：runtime_error类继承自exception类，overflow_error类继承自runtime_error类（对此，可见教程P693的继承体系）。在使用来自继承层次的异常时，catch子句应该从最低派生类型到最高派生类型排序，以便派生类型的处理代码可以出现在其基类的catch之前，所以上述块中，catch子句的顺序错误。可以修改为：
+	try{
+	    // 使用C++标准库
+	}catch( overflow_error eobj ){
+	    // ...  
+	}catch( const runtime_error &re ){
+	    // ...
+	}catch( exception ){
+	    // ... 
+	}

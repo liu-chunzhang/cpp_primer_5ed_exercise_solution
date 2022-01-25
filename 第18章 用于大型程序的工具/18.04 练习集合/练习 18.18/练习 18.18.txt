@@ -1,0 +1,2 @@
+如果mem1是string类型时，编译器除了在常规作用域中查找匹配的swap外，还会查找string所属的命名空间中是否有string类型的特定版本的swap函数。但对string而言，找到的就是std::swap，完成两个字符串内容的交换。
+若mem1是int类型，由于int是内置类型，没有特定版本的swap，只会在常规作用域中查找。由于using声明的作用，最终会调用std::swap，完成两个int的交换。

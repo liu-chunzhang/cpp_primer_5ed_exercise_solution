@@ -1,0 +1,2 @@
+(a)异常对象的类型是range_error；
+(b)被抛出的异常对象是对指针p解引用的结果，其类型与p的静态类型相匹配，为exception。若写成throw p ;则抛出的对象是exception*类型。

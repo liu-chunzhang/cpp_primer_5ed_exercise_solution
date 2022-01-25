@@ -1,0 +1,4 @@
+只要理解使用throw时异常对象的类型一般需要和catch语句捕获的对象类型相对应即可。
+(a)throw exceptionType() ;
+(b)throw exception() ;
+(c)EXCPTYPE i = 2 ; throw i ;

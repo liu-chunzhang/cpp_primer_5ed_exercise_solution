@@ -1,0 +1,4 @@
+将函数返回类型及函数名前加上命名空间限定即可：
+mathLib::MatrixLib::matrix mathlib::MatrixLib::operator*( const mathLib::MatrixLib::matrix &lhs , const mathLib::MatrixLib::matrix &rhs ) { 
+    /... .../ 
+}

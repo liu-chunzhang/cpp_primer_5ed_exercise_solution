@@ -1,0 +1,11 @@
+全局作用域中声明的函数void compute( int )与函数f里的函数compute( 0 )的调用匹配。
+候选函数：命名空间primerLib中声明的两个函数compute（此时因using声明可使得它们在全局作用域中可见），以及全局作用域中声明的三个函数compute。
+可行函数：因函数调用中的实参0为int型变量，则可行函数有4个，分别是
+(1)void compute( int ) ;
+(2)void compute( double , double = 3.4 ) ;
+(3)void compute( char* , char* = 0 ) ;
+(4)void primerLib::compute( const void * ) ;
+其中，第一个为完全匹配，第二个需要将实参隐式转换为double类型，第三个需要将实参隐式转换为char*类型，第四个需要将实参隐式转换为void*类型方可匹配，所以第一个即为最佳匹配。
+如果将using声明置于函数f中的compute的调用点之前，则primerLib中声明的void compute( const void* ) ;已经与compute函数的调用匹配。
+候选函数：命名空间primerLib中声明的两个compute函数（因using声明使得它们在函数f的函数体作用域可见，并屏蔽了全局作用域的三个compute函数）。
+可行函数：因函数调用中给出的实参0为int类型，所以可行函数为primerLib中声明的void compute( const void* )。需要将实参隐形转换为void*类型方可匹配。

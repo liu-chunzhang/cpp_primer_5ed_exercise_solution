@@ -1,0 +1,4 @@
+对于变量名，Base::ival需要前缀限定符才能访问，Derived1::cval需要前缀限定符才能访问，Derived2::ival不需要前缀限定符即可访问，Derived2::cval需要前缀限定符才能访问；
+对于函数名，Base::bar需要前缀限定符才能访问，Derived1::bar不需要前缀限定符即可访问，Derived1::foo需要前缀限定符才能访问，Derived2::foo需要前缀限定符才能访问。
+更具体的，在VMI类内部可以不加限定地访问继承成员bar和ival。bar在共享基类Base和派生类Derived1中都存在，但这只是在一条派生路径上，特定派生类实例的优先级高于基类实例，所以在VMI类内部不加限定地访问bar访问到的是Derived1::bar。ival在共享基类Base和派生类Derived2中的ival都存在，同理在VMI类内部不加限定地访问ival访问到的是Derived2::ival。
+继承成员foo和cval需要限定，二者在Derived1和Derived2中均存在，Derived1和Derived2均为Base的派生类，访问优先级相同，所以在VMI类内不加限定地访问foo和cval，会出现二义性。

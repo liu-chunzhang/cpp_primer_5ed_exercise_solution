@@ -1,0 +1,8 @@
+(a)MI::foo中可见的变量名有ival、dval、cval、fval、sval、dvec，函数名有print；
+(b)存在。比如MI的直接基类为Derived和Base2，共有的可见变量名有dval，共有的可见函数名有print（更远的相同的可见变量名也是Base1::dval和Base1::print）；
+(c)做到这一点可以写的代码为
+	dval = Base1::dval +Derived::dval ;
+(d)做到这一点可以写的代码为
+	Base2::fval = dvec.back() ;
+(e)做到这一点可以写的代码为
+	sval[0] = Base1::cval ;

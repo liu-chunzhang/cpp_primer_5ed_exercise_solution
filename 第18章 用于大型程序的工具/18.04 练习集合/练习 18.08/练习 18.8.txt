@@ -1,0 +1,17 @@
+在这里只说本题应该做到的要点而略去对于所有已经编写的类的改动。以一个抽象的新类Anyitem为例说明：
+class Anyitem{
+    public:
+        Anyitem( /* ... */ ) try : /... ... / { /... ... / } catch( exception &e ) { } 
+        virtual ~Anyitem(){
+            cout << "开始准备销毁一个Anyitem类的对象" << endl;
+            try{        // 把异常完全封装在析构函数内部
+                throw runtime_error( "用于测试而故意抛出的异常" ) ;     // 此处尝试在析构函数中抛出异常
+            }catch(...){
+                /* ... ... */ // 其他操作
+            }
+        }
+        void func() noexcept {
+            throw runtime_error( "用于测试而故意抛出的异常" ) ;
+        }
+        void other() { }
+};  

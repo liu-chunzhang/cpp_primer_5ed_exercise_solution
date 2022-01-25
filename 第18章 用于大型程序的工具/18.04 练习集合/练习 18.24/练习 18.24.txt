@@ -1,0 +1,6 @@
+若使用ZooAnimal指针，则只能使用ZooAnimal中已定义的操作（指针和引用的静态类型绝对了能够使用的成员），具体分析为：
+pb->print() ;通过基类指针调用虚函数，使用动态绑定，pb目前指向Panda对象，调用Panda::print() ；
+pb->cuddle() ;因为ZooAnimal类中没有定义cuddle操作，所以该调用失败；
+pb->highlight() ;通过ZooAnimal类中没有定义hightlight操作，所以该调用失败；
+delete pb ;因为ZooAnimal类中定义了虚析构函数，所以Panda类中的析构函数也是虚函数，因此通过delete pb ;通过虚函数机制调用Panda类的析构函数，随着Panda析构函数的执行，依次调用Endangered、Bear和ZooAnimal的额析构函数。
+综上，通过指向Panda对象的Bear指针或ZooAnimal指针进行上述调用，将以同样的方式确定函数调用。

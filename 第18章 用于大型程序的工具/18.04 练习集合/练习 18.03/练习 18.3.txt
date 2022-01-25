@@ -1,0 +1,33 @@
+实际解决问题方案不止两种，暂时在此提供至少三种作为参考。
+方法1：构造类类型并使用（即使用对象，毕竟封装是C++的核心思想之一）。通过定义一个类类型来封装数组的分配和释放，以保证可以正确释放资源。举例如下（下述代码均已经声明using namespace::std;）：
+class intArr {
+    public:
+        intArr() = default ;
+        explicit intArr( size_t sz ) : p( new int[ sz ] ) { }
+        ~intArr() { if( p ) delete [] p ; }
+
+    private:
+        int* p = nullptr ;
+} ;
+相应的源代码应改为
+void exercise( int *b , int *e ) {
+    vector<int> v( b, e ) ;
+    intArr iarr( v.size() ) ;
+    ifstream in( "ints" ) ;
+    /* ... 此处发生异常... */
+}
+方法2：使用智能指针代替原始指针（修改最简单）。即在添加头文件<memory>后，将定义原始指针那一句改为
+	shared_ptr<int> p( new int[ v.size() ] ) ;
+方法3：将有可能发生异常的代码放在try块中，以便在异常发生时捕获异常（思路最直接）。将练习18.2题干中的代码改为
+void exercise( int* b , int* e ){
+    vector<int> v( b , e ) ;
+    int *p = new int[ v.size() ] ;
+    try{
+        ifstream in( "ints" ) ;
+        /* ... 此处发生异常 ... */
+    }catch{
+        delete []p ;
+        /* ... 进行其他处理 ... */
+    }
+    /* ... 其他内容 ... */
+注：如下节所述，正常catch子句应该是有异常声明的，但是若其无须访问抛出的表达式的话，可以忽略捕获形参的名字，上面catch的使用正属于此情形。
