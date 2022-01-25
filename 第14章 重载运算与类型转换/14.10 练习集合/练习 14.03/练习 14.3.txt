@@ -1,0 +1,4 @@
+(a)"cobble" == "store"是字面值常量间比较，应该是应用了C++内置版本的==，实质上是比较两个指针；
+(b)svec1[0] == svec2[0]应用了string版本的重载==；
+(c)svec1 == svec2应用了vector版本重载的==；
+(d)svec1[0] == "stone"应用了string版本的重载==，字符串字面常量被转换为string。

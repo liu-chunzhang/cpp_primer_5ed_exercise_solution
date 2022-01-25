@@ -1,0 +1,2 @@
+对于int ex1 = ldObj ;，它需要把LongDouble类型转换成int类型，但是LongDouble并没有定义对应的类型转换运算符，因此其会尝试使用其他的类型转换运算符来进行转换，其中operator double()和operator float()都满足要求。但编译器无法确定哪一个更合适，因此会出现二义性错误。
+对于float ex2 = ldObj ;，它需要把LongDouble类型转换成float类型，而此时恰好有对应的类型转换运算符，因此只需要直接调用operator float()即可。

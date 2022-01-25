@@ -1,0 +1,2 @@
+对于ld = si + ld ;由于LongDouble不能转换为SmallInt，因此SmallInt的友元函数operator+( const SmallInt& , const SmallInt& )不能被调用。因为SmallInt可以转换为int，LongDouble可以转换为float和double，所以内置的operator( int , double )和operator( int , float )都可行，会产生二义性。
+对于ld = ld + si ;类似上一个加法表达式，由于SmallInt不能转换成double，所以不能调用LongDouble的友元函数operator+( LongDouble& , double )。不过，这个表达式可以准确匹配成员函数operator+( const SmallInt& )，除此之外同上可以匹配内置的operator( int , double )和operator( int , float )，不过还是LongDouble的成员operator+优先匹配。

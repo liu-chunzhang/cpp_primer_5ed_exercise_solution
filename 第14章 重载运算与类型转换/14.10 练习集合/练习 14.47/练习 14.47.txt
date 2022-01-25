@@ -1,0 +1,1 @@
+前者将对象转换成const int，在接受const int的地方方可使用（但是并不指定this是const指针）；后者则将对象转换成int，更为通用一些（但限定了this是const指针）。
