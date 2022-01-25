@@ -1,0 +1,1 @@
+push_back和pop_back的作用分别是向StrBlob对象共享的vector<string>对象添加元素和从其删除元素。因此我们不应该给为其重载const版本，因为常量StrBlob对象是不应被允许修改共享的vector对象内容的。

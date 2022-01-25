@@ -1,0 +1,4 @@
+(a)合法。sp是一个共享指针，指向一个int对象。对process的调用会拷贝sp，传递给process的参数ptr，两者都指向相同的int对象，引用计数变为2。当process执行完毕，ptr被销毁，引用计数变为1；
+(b)合法。new创建了一个int对象，指向它的指针被用来创建了一个shared_ptr，传递给process的ptr，引用计数为1。当process执行完毕，ptr被销毁，引用计数变为0，临时int对象因而被销毁。不存在内存泄漏和空悬指针的问题；
+(c)不合法。不能将int*转换为shared_ptr<int>；
+(d)合法，但是程序出错。p是一个指向int对象的普通指针，被用来创建一个临时shared_ptr，传递给process的参数ptr，引用计数为1。当process执行完毕，ptr被销毁，引用计数变为0，int对象被销毁。p变为空悬指针。
