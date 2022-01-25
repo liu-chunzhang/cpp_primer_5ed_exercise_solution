@@ -1,0 +1,3 @@
+(a)共创建了12个对象：6个Query_base对象以及相关联的句柄（即Query对象）。6个Query_base对象分别是3个WordQuery对象，1个NotQuery对象，1个AndQuery对象和1个OrQuery对象；
+(b)共创建了12个对象：6个Query_base对象以及相关联的句柄。6个Query_base对象分别是3个WordQuery对象，1个NotQuery对象，1个AndQuery对象和1个OrQuery对象；
+(c)共创建了14个对象：7个Query_base对象以及相关联的句柄。6个Query_base对象分别是4个WordQuery对象，2个AndQuery对象和1个OrQuery对象。

@@ -1,0 +1,1 @@
+OrQuery的eval从lhs和rhs获取范围来构造set（或向其插入），而set的构造和插入操作可以正确处理空范围，因为无论lhs和rhs结果是否为空集，eval都能够得到正确结果。

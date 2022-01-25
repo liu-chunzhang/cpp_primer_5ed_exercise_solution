@@ -1,0 +1,19 @@
+base类的print函数将自身的数据成员basename进行标准输出，derived类的print函数调用自身的print函数输出，再输出自身数据成员i。
+这里正是P539最下面的警告所提及的情形：若一个派生类虚函数需要调用其基类版本，但是却没使用作用域运算符，则在运行时该调用将被解析为对派生类版本自身的调用，从而导致无限递归！
+一种可行的修改方法是如此定义这两个类：base类定义为
+class base {
+    public:
+        string name() { return basename ; }
+        virtual void print( ostream &os ) { os << basename ; }
+
+    private:
+        string basename ;
+};
+而derived类定义为
+class derived : public base {
+    public:
+        void print( ostream &os ) override { base::print( os ) ; os << " " << i ; }
+
+    private:
+        int i ;
+};

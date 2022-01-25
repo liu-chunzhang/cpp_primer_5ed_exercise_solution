@@ -1,0 +1,37 @@
+(a)
+WordQuery::WordQuery( const string& )
+Query::Query( const string& ) wind
+WordQuery::WordQuery( const string& )
+Query::Query( const string& ) bird
+WordQuery::WordQuery( const string& )
+Query::Query( const string& ) fiery
+BinaryQuery::BinaryQuery( const Query& , const Query& , string )
+AndQuery::AndQuery( const Query& , const Query& )
+Query::Query( shared_ptr<Query_base> )
+BinaryQuery::BinaryQuery( const Query& , const Query& , string )
+OrQuery::OrQuery( const Query& , const Query& )
+Query::Query( shared_ptr<Query_base> )
+
+(b)
+Query.rep()
+BinaryQuery.rep() |
+Query.rep()
+WordQuery::rep()
+Query.rep()
+BinaryQuery.rep() &
+Query.rep()
+WordQuery::rep()
+Query.rep()
+WordQuery::rep()
+
+(c)
+Query::eval()
+OrQuery::eval( const TextQuery& )
+Query::eval()
+AndQuery::eval( const TextQuery& )
+Query::eval()
+WordQuery::eval( const TextQuery& )
+Query::eval()
+WordQuery::eval( const TextQuery& )
+Query::eval()
+WordQuery::eval( const TextQuery& )

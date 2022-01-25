@@ -1,0 +1,2 @@
+个人的编译器给出的报错信息是（设新建Disc_quote的变量名为item）
+	cannot declare variable 'item' to be of abstract type 'Disc_quote'

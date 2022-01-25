@@ -1,0 +1,5 @@
+当且仅当通过引用或指针调用虚函数时（才会在运行时解析该调用），可能会使表达式的静态类型和动态类型不同（如在此时使用派生类对象代替基类部分）。一些例子有
+	Bulk_quote bulk ;
+	Quote *pQuote = &bulk ;
+	Quote &rQuote = bulk ;
+	double print_total( ostream &out , const Quote &item , size_t n ) ;

@@ -1,0 +1,1 @@
+Query类没有定义自己的拷贝/移动成员，当进行这些操作时执行默认语义。而其唯一的数据成员是Query_base的shared_ptr，因此当拷贝、移动、赋值或销毁一个Query对象时，会调用shared_ptr的对应控制成员，从而实现多个Query对象正确共享一个Query_base。而shared_ptr的控制成员调用Query_base的控制成员时，由于指向的可能是Query_base的派生类对象，因此可能在类层次中进行相应的拷贝/移动操作，调用Query_base的派生类的相应控制成员。

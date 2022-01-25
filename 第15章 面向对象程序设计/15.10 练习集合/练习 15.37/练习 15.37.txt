@@ -1,0 +1,3 @@
+书中的实现是用Query类封装了Query_base指针，管理实际查询处理用到的不同Query类型对象。
+如果不使用Query类，则涉及使用Query类的地方，都要改成Query_base的shared_ptr（下称Query_base指针），如创建单个词查询时，就必须创建WordQuery类而不是Query对象。几个重载的布尔运算符也不能针对Query对象，而需针对Query_base指针，从而复杂的查询请求无法再写成目前的简单形式，而需要逐个运算完成，将结果赋予Query_base指针，然后再进行下一步运算。资源管理方面也需要重新设计。
+因此，当前的设计确实是较优解。

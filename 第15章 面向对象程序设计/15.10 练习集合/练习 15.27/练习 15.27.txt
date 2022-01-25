@@ -1,0 +1,1 @@
+此处仅放置符合题意的Quote、Disc_quote和Bulk_quote类的头文件和源文件，相关设置见这些文件，不再设置cbp文件。
