@@ -1,0 +1,9 @@
+应该注意的是，类模板的名字并不是一个类型名，只有实例化后才能形成类型，而实例化总是需要提供模板实参的。因此在题干所示代码中直接使用ListItem是不正确的，应该使用ListItem<elemtype>，这才是一个类型。即源代码中的public部分里，代码
+	void insert( ListItem *ptr , elemType value ) ;
+应改为
+	void insert( ListItem<elemType> *ptr , elemType value ) ;
+而private部分里，代码
+	ListItem *front , *end ;
+应改为
+	ListItem<elemType> *front , *end ;
+注：这规则有一个例外，就在类模板作用域中，可以直接使用模板名而不提供实参。比如，在本题题干所示代码中，List<elemType>可简化为List。

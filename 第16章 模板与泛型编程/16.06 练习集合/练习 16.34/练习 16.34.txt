@@ -1,0 +1,3 @@
+(a)因为对象类型不一样，又都是引用，不能转化为指针，所以不能调用compare函数。相关编译器报错信息是：
+	no matching function for call to 'compare(const char [3], const char [6])'
+(b)因为类型一致，都是const char(&)[4]，不必再进行类型转换，所以可以调用。

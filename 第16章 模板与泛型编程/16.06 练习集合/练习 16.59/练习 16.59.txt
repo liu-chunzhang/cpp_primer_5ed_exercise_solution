@@ -1,0 +1,3 @@
+由于s是一个左值，经过包扩展，它将以如下形式传递给construct：
+	std::forward<string>( s ) ;
+forward<string>的结果类型是string&，因此construct将得到一个左值引用实参，它继续将此参数传递给string的拷贝构造函数来创建新元素。

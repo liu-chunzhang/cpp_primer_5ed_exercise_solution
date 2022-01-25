@@ -1,0 +1,23 @@
+由于函数模板的实例化只处理特定类型，因此对于相等和关系运算符，对每个BlobPtr实例与用相同类型实例化的运算符建立一对一的友好关系即可。参考代码如下
+
+template <typename T> class Blob ;
+template <typename T> bool operator == ( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+template <typename T> bool operator != ( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+template <typename T> bool operator < ( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+template <typename T> bool operator <= ( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+template <typename T> bool operator > ( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+template <typename T> bool operator >= ( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+
+template <typename T> class BlobPtr {
+	friend bool operator ==<T>( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+	friend bool operator != <T> ( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+	friend bool operator <  <T>( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+	friend bool operator <= <T>( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+	friend bool operator >  <T>( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+	friend bool operator >= <T>( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) ;
+	...
+};
+
+template <typename T> 
+bool operator == ( const BlobPtr<T> &lhs , const BlobPtr<T> &rhs ) { / ... / }
+....

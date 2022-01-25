@@ -1,0 +1,9 @@
+(a)非法，必须明确指出U是类型参数还是非类型参数。可改为
+	template <typename T, typename U, typename V> void f1( T , U , V ) ;
+(b)非法，在作用域中，模板参数名不能重用，而这里重用T作为形参名。可改为
+	template <typename T> T f2( int& t ) ;
+(c)非法，在模板定义时才能指定inline。可改为
+	template <typename T> T foo( T , unsigned int* ) ;
+(d)非法，在指定函数时未定义返回类型。可改为
+	template <typename T> bool f4( T , T ) ;
+(e)合法。可参照16.1.3节“模板参数与作用域”一节的说明可知，在模板作用域中，类型参数Ctype屏蔽了之前定义的类型别名Ctype。

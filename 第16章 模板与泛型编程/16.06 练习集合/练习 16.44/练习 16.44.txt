@@ -1,0 +1,8 @@
+当g的函数参数声明为T时，表明参数传递是传值的，三个调用情况如下：
+(a)T为int，val类型为int；
+(b)T为int，val类型为int；
+(c)T为int，val类型为int；
+而当g的函数参数声明为const T&时，表明参数传递是传任何类型实参的，而T的类型推断结果不会有const，故三个调用情况如下：
+(a)T为int，val类型为const int&；
+(b)T为int，val类型为const int&；
+(c)T为int，val类型为const int&。

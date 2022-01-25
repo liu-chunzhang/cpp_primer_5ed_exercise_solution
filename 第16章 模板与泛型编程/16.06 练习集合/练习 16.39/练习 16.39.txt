@@ -1,0 +1,2 @@
+即显式定义模板实参为string即可。形如
+	compare<string>( "Hello" , "World" ) ;
