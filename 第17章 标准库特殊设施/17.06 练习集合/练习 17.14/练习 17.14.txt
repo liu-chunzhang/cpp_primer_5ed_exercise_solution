@@ -1,0 +1,8 @@
+此文件在本机的绝对路径是
+C:\Users\lkz98\Desktop\C++ Primer（第五版） 程序设计整理\第17章 标准库特殊设施\17.6 练习集合\练习 17.14
+在命令行内依次执行下面的命令：
+g++ -D NDE_BUG1 main.cpp -o test1
+g++ -D NDE_BUG2 main.cpp -o test2
+g++ -D NDE_BUG3 main.cpp -o test3
+g++ -D NDE_BUG4 main.cpp -o test4
+可以依次编译得到test1.exe，test2.exe，test3.exe和test4.exe，双击即可运行比较其区别，查看运行报出的错误。
