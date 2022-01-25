@@ -1,0 +1,1 @@
+不合法。因为函数Screen::get_cursor返回类型为Screen::pos，而函数Screen::get的返回类型为char。对此可参见Screen类的头文件和源文件。

@@ -1,0 +1,8 @@
+一种可行的改法为：
+A *pa = new A ;
+    try{
+        C &c = dynamic_cast<C&>( pa ) ;
+    }catch( bad_cast ) {
+        /* ... */ // 其他处理
+    }
+此方法参考自教程19.2.1节最后。
